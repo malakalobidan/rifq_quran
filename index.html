@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123C32">
+<title>رِفْق | رحلة حفظ القرآن</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+    --green:#123C32;
+    --green2:#1D5B4A;
+    --mint:#EAF3EF;
+    --cream:#FAF8F2;
+    --gold:#C9A85D;
+    --gold2:#E5D19A;
+    --text:#17332C;
+    --muted:#6E7E79;
+    --white:#FFFFFF;
+    --border:rgba(18,60,50,.10);
+    --shadow:0 20px 60px rgba(18,60,50,.10);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    padding:18px 5%;
+    transition:.3s;
+}
+
+.navbar.scrolled{
+    background:rgba(250,248,242,.92);
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.nav-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+    font-size:23px;
+    color:var(--green);
+}
+
+.logo img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    font-size:14px;
+    color:#38534c;
+}
+
+.nav-links a{
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.icon-btn{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:white;
+    color:var(--green);
+    display:grid;
+    place-items:center;
+    font-size:17px;
+}
+
+.lang-btn{
+    border:1px solid var(--border);
+    background:white;
+    padding:9px 15px;
+    border-radius:30px;
+    color:var(--green);
+    font-weight:600;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 5% 90px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:var(--mint);
+    top:-250px;
+    right:-250px;
+    z-index:-1;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:#F1E9D6;
+    bottom:-300px;
+    left:-200px;
+    z-index:-1;
+}
+
+.hero-inner{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:70px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(201,168,93,.12);
+    color:#856C30;
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:24px;
+}
+
+.hero h1{
+    font-family:'Amiri',serif;
+    font-size:clamp(55px,7vw,100px);
+    line-height:.95;
+    color:var(--green);
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero h2{
+    font-size:clamp(25px,3vw,42px);
+    line-height:1.4;
+    margin-bottom:20px;
+}
+
+.hero-text{
+    color:var(--muted);
+    font-size:17px;
+    line-height:2;
+    max-width:600px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.primary-btn{
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:15px 28px;
+    border-radius:14px;
+    font-weight:700;
+    font-size:15px;
+    transition:.3s;
+    box-shadow:0 12px 25px rgba(18,60,50,.18);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+    background:var(--green2);
+}
+
+.secondary-btn{
+    background:white;
+    color:var(--green);
+    border:1px solid var(--border);
+    padding:14px 25px;
+    border-radius:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.secondary-btn:hover{
+    transform:translateY(-3px);
+}
+
+.hero-note{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:22px;
+    color:#73827e;
+    font-size:12px;
+}
+
+/* ================= HERO CARD ================= */
+
+.hero-card-wrap{
+    position:relative;
+}
+
+.phone{
+    max-width:390px;
+    margin:auto;
+    background:#FDFCF8;
+    border:8px solid #173D34;
+    border-radius:45px;
+    box-shadow:0 35px 80px rgba(18,60,50,.22);
+    overflow:hidden;
+    position:relative;
+}
+
+.phone-top{
+    padding:22px 23px 10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.phone-logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:800;
+    color:var(--green);
+}
+
+.phone-logo img{
+    width:30px;
+    height:30px;
+}
+
+.phone-content{
+    padding:20px 22px 30px;
+}
+
+.greeting{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.phone-title{
+    font-size:23px;
+    font-weight:800;
+    margin-top:5px;
+}
+
+.progress-card{
+    margin-top:22px;
+    padding:20px;
+    border-radius:22px;
+    background:var(--green);
+    color:white;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+}
+
+.progress-bar{
+    height:7px;
+    background:rgba(255,255,255,.2);
+    border-radius:10px;
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:68%;
+    background:var(--gold2);
+    border-radius:10px;
+}
+
+.ayah-card{
+    margin-top:15px;
+    padding:20px;
+    background:white;
+    border-radius:22px;
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+    text-align:center;
+}
+
+.ayah{
+    font-family:'Amiri',serif;
+    font-size:22px;
+    line-height:2;
+}
+
+.surah-name{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.phone-action{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:12px;
+}
+
+.small-action{
+    border:1px solid var(--border);
+    background:white;
+    padding:12px 8px;
+    border-radius:13px;
+    color:var(--green);
+    font-size:12px;
+}
+
+.floating-card{
+    position:absolute;
+    background:white;
+    padding:15px 18px;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.float-one{
+    top:15%;
+    right:-35px;
+}
+
+.float-two{
+    bottom:13%;
+    left:-35px;
+}
+
+.float-icon{
+    width:35px;
+    height:35px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:var(--mint);
+}
+
+/* ================= GENERAL ================= */
+
+.section{
+    padding:110px 5%;
+}
+
+.section-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:720px;
+    margin:0 auto 55px;
+}
+
+.eyebrow{
+    color:var(--gold);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:.5px;
+    margin-bottom:10px;
+}
+
+.section-heading h2{
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.35;
+    margin-bottom:15px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:2;
+}
+
+/* ================= PROBLEM ================= */
+
+.problem{
+    background:white;
+}
+
+.problem-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.problem-card{
+    padding:28px 22px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:#fff;
+    transition:.3s;
+}
+
+.problem-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.problem-icon{
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.problem-card h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.problem-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* ================= SOLUTION ================= */
+
+.solution{
+    background:var(--cream);
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+    position:relative;
+}
+
+.step{
+    text-align:center;
+    position:relative;
+}
+
+.step-number{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    margin:0 auto 15px;
+    background:white;
+    border:1px solid var(--border);
+    color:var(--green);
+    font-weight:800;
+    position:relative;
+    z-index:2;
+}
+
+.step h3{
+    font-size:15px;
+    margin-bottom:7px;
+}
+
+.step p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    background:var(--green);
+    color:white;
+}
+
+.experience .section-heading p{
+    color:rgba(255,255,255,.68);
+}
+
+.experience-box{
+    background:#FDFCF8;
+    color:var(--text);
+    border-radius:32px;
+    padding:40px;
+    max-width:850px;
+    margin:auto;
+    box-shadow:0 30px 80px rgba(0,0,0,.2);
+}
+
+.choice-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.time-options{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.time-option{
+    padding:18px 10px;
+    border:1px solid var(--border);
+    background:white;
+    border-radius:17px;
+    text-align:center;
+    color:var(--green);
+    transition:.25s;
+}
+
+.time-option:hover,
+.time-option.active{
+    background:var(--green);
+    color:white;
+}
+
+.session{
+    display:none;
+    margin-top:30px;
+}
+
+.session.active{
+    display:block;
+    animation:fadeUp .5s ease;
+}
+
+.session-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.session-title{
+    font-weight:800;
+}
+
+.session-time{
+    color:var(--gold);
+    font-weight:800;
+}
+
+.ayah-large{
+    text-align:center;
+    padding:35px 20px;
+    background:var(--mint);
+    border-radius:25px;
+    font-family:'Amiri',serif;
+    font-size:30px;
+    line-height:2.2;
+}
+
+.session-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.session-btn{
+    border:1px solid var(--border);
+    background:white;
+    padding:15px;
+    border-radius:14px;
+    color:var(--green);
+    font-weight:700;
+}
+
+.session-message{
+    margin-top:15px;
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    min-height:24px;
+}
+
+/* ================= MAP ================= */
+
+.map-section{
+    background:white;
+}
+
+.map-box{
+    background:var(--cream);
+    padding:40px;
+    border-radius:30px;
+}
+
+.map-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.map-title{
+    font-size:22px;
+    font-weight:800;
+}
+
+.map-legend{
+    display:flex;
+    gap:15px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+.legend{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    display:inline-block;
+}
+
+.green-dot{background:#4C8B6D;}
+.yellow-dot{background:#D6B86B;}
+.blue-dot{background:#7295A8;}
+.red-dot{background:#B96868;}
+
+.ayah-map{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+}
+
+.ayah-node{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    color:white;
+    font-size:12px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.ayah-node:hover{
+    transform:scale(1.1);
+}
+
+.node-green{background:#4C8B6D;}
+.node-yellow{background:#D6B86B;}
+.node-blue{background:#7295A8;}
+.node-red{background:#B96868;}
+
+/* ================= WAQF ================= */
+
+.waqf{
+    background:#F2EEE4;
+}
+
+.waqf-card{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:white;
+    border-radius:32px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.waqf-content{
+    padding:55px;
+}
+
+.waqf-content h2{
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+.waqf-content p{
+    color:var(--muted);
+    line-height:2;
+    font-size:14px;
+}
+
+.waqf-button{
+    margin-top:25px;
+}
+
+.impact-panel{
+    background:var(--green);
+    color:white;
+    padding:55px;
+}
+
+.impact-panel h3{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.impact-stat{
+    padding:17px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.impact-stat strong{
+    display:block;
+    font-size:27px;
+    color:var(--gold2);
+}
+
+.impact-stat span{
+    font-size:12px;
+    color:rgba(255,255,255,.65);
+}
+
+/* ================= AUDIENCE ================= */
+
+.audience{
+    background:white;
+}
+
+.audience-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.audience-card{
+    padding:30px 22px;
+    border-radius:24px;
+    background:var(--cream);
+    border:1px solid var(--border);
+}
+
+.audience-card .big{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.audience-card h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.audience-card p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.9;
+}
+
+/* ================= VALUES ================= */
+
+.values{
+    background:var(--green);
+    color:white;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.value{
+    padding:30px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    background:rgba(255,255,255,.04);
+}
+
+.value h3{
+    margin-bottom:10px;
+}
+
+.value p{
+    color:rgba(255,255,255,.65);
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    padding:120px 5%;
+    text-align:center;
+    background:var(--cream);
+}
+
+.cta h2{
+    font-size:clamp(34px,5vw,58px);
+    margin-bottom:18px;
+}
+
+.cta p{
+    color:var(--muted);
+    max-width:650px;
+    margin:auto;
+    line-height:2;
+}
+
+.cta .primary-btn{
+    margin-top:30px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0D2E27;
+    color:white;
+    padding:45px 5%;
+}
+
+.footer-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.footer-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:20px;
+}
+
+.footer-logo img{
+    width:40px;
+}
+
+.footer-text{
+    color:rgba(255,255,255,.55);
+    font-size:11px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(5,25,21,.65);
+    backdrop-filter:blur(10px);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:var(--cream);
+    width:min(500px,100%);
+    border-radius:28px;
+    padding:35px;
+    position:relative;
+    animation:fadeUp .4s ease;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    left:15px;
+    border:0;
+    background:white;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    color:var(--green);
+}
+
+.modal h2{
+    margin-bottom:12px;
+}
+
+.modal p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:1s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-text{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-note{
+        justify-content:center;
+    }
+
+    .problem-grid,
+    .audience-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .waqf-card{
+        grid-template-columns:1fr;
+    }
+
+    .values-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:13px 4%;
+    }
+
+    .logo img{
+        width:40px;
+        height:40px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .hero{
+        padding:125px 5% 70px;
+    }
+
+    .hero h1{
+        font-size:70px;
+    }
+
+    .hero h2{
+        font-size:24px;
+    }
+
+    .hero-text{
+        font-size:14px;
+    }
+
+    .phone{
+        border-width:6px;
+    }
+
+    .floating-card{
+        display:none;
+    }
+
+    .section{
+        padding:75px 5%;
+    }
+
+    .problem-grid,
+    .audience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .experience-box{
+        padding:25px 18px;
+    }
+
+    .time-options{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .session-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .map-box{
+        padding:25px 15px;
+    }
+
+    .map-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .waqf-content,
+    .impact-panel{
+        padding:35px 25px;
+    }
+
+    .waqf-content h2{
+        font-size:30px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar" id="navbar">
+
+<div class="nav-inner">
+
+<a href="#home" class="logo">
+<img src="rifq-logo.png" alt="شعار رِفْق">
+<span>رِفْق</span>
+</a>
+
+<nav class="nav-links">
+<a href="#problem">لماذا رِفْق؟</a>
+<a href="#how">كيف يعمل؟</a>
+<a href="#experience">جرّب رِفْق</a>
+<a href="#map">رحلتي</a>
+<a href="#waqf">وقف آية</a>
+</nav>
+
+<div class="nav-actions">
+
+<button class="lang-btn" id="languageBtn" onclick="toggleLanguage()">EN</button>
+
+<button class="icon-btn" onclick="toggleTheme()" aria-label="الوضع الليلي">
+☾
+</button>
+
+</div>
+
+</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-inner">
+
+<div class="hero-copy reveal">
+
+<div class="badge">
+<span>✦</span>
+وقف تقني لخدمة أهل القرآن
+</div>
+
+<h1>رِفْق<span>.</span></h1>
+
+<h2>
+رفيقك في رحلة حفظ كتاب الله،
+على قدر استطاعتك.
+</h2>
+
+<p class="hero-text">
+لأن رحلة حفظ القرآن ليست سباقًا،
+صممنا رِفْق ليجعل الحفظ والمراجعة
+أكثر مرونة، وأقرب إلى ظروف كل إنسان.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#experience" class="primary-btn">
+ابدأ رحلتك
+</a>
+
+<a href="#how" class="secondary-btn">
+اكتشف كيف يعمل
+</a>
+
+</div>
+
+<div class="hero-note">
+<span>✦</span>
+تقنية تُسخّر لخدمة كتاب الله وأهله
+</div>
+
+</div>
+
+
+<div class="hero-card-wrap reveal">
+
+<div class="phone">
+
+<div class="phone-top">
+
+<div class="phone-logo">
+<img src="rifq-logo.png" alt="">
+<span>رِفْق</span>
+</div>
+
+<span>•••</span>
+
+</div>
+
+<div class="phone-content">
+
+<div class="greeting">
+مساء الخير، ملاك
+</div>
+
+<div class="phone-title">
+رحلتك مستمرة 🌱
+</div>
+
+<div class="progress-card">
+
+<div class="progress-top">
+<span>تقدمك في سورة الملك</span>
+<strong>68%</strong>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</div>
+
+<div class="ayah-card">
+
+<div class="ayah">
+تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ
+</div>
+
+<div class="surah-name">
+سورة الملك • الآية ١
+</div>
+
+</div>
+
+<div class="phone-action">
+
+<button class="small-action" onclick="phoneMessage('🎧 يتم تشغيل التلاوة...')">
+🎧 استمع
+</button>
+
+<button class="small-action" onclick="phoneMessage('🔁 كرر الآية بهدوء')">
+🔁 كرر
+</button>
+
+<button class="small-action" onclick="phoneMessage('🎙️ استعد للتسميع...')">
+🎙️ سمّعني
+</button>
+
+<button class="small-action" onclick="phoneMessage('🧠 جاري اختبار الحفظ...')">
+🧠 اختبرني
+</button>
+
+</div>
+
+<div id="phoneMessage" style="text-align:center;color:#71817C;font-size:11px;margin-top:12px;">
+</div>
+
+</div>
+</div>
+
+<div class="floating-card float-one">
+<div class="float-icon">🌱</div>
+<div>
+استمراريتك<br>
+<span style="color:#C9A85D">٧ أيام</span>
+</div>
+</div>
+
+<div class="floating-card float-two">
+<div class="float-icon">✓</div>
+<div>
+جلسة اليوم<br>
+<span style="color:#4C8B6D">مكتملة</span>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= PROBLEM ================= -->
+
+<section class="section problem" id="problem">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">المشكلة</div>
+
+<h2>
+ليس الجميع يملكون الطريق نفسه إلى الحفظ.
+</h2>
+
+<p>
+الرغبة موجودة، لكن الظروف تختلف.
+رِفْق يبدأ من الإنسان وظروفه، لا من خطة ثابتة.
+</p>
+
+</div>
+
+<div class="problem-grid">
+
+<div class="problem-card reveal">
+<div class="problem-icon">⏳</div>
+<h3>وقت محدود</h3>
+<p>
+قد لا يملك الشخص وقتًا ثابتًا يوميًا للجلوس في حلقة أو اتباع خطة طويلة.
+</p>
+</div>
+
+<div class="problem-card reveal">
+<div class="problem-icon">📍</div>
+<h3>البعد عن حلقات التحفيظ</h3>
+<p>
+ليس الجميع قريبًا من حلقة تحفيظ أو قادرًا على حضورها باستمرار.
+</p>
+</div>
+
+<div class="problem-card reveal">
+<div class="problem-icon">🔄</div>
+<h3>صعوبة الاستمرار</h3>
+<p>
+يبدأ البعض بحماس ثم يتوقف عندما تصبح الخطة أكبر من قدرته.
+</p>
+</div>
+
+<div class="problem-card reveal">
+<div class="problem-icon">🧠</div>
+<h3>اختلاف طرق التعلم</h3>
+<p>
+ما يناسب شخصًا في الحفظ قد لا يناسب شخصًا آخر.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= HOW ================= -->
+
+<section class="section solution" id="how">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">كيف يعمل رِفْق؟</div>
+
+<h2>
+الخطة تتكيف معك، لا العكس.
+</h2>
+
+<p>
+تجربة تعلم مرنة تساعدك على بناء عادة مستمرة في الحفظ والمراجعة.
+</p>
+
+</div>
+
+<div class="steps">
+
+<div class="step reveal">
+<div class="step-number">01</div>
+<h3>حدد قدرتك</h3>
+<p>كم تستطيع أن تمنح القرآن اليوم؟</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">02</div>
+<h3>ابدأ جلسة</h3>
+<p>جلسة مصممة وفق وقتك ومستواك.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">03</div>
+<h3>احفظ وسمّع</h3>
+<p>استمع، ردد، ثم اختبر حفظك.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">04</div>
+<h3>راجع بذكاء</h3>
+<p>يحدد مواضع احتياجك للمراجعة.</p>
+</div>
+
+<div class="step reveal">
+<div class="step-number">05</div>
+<h3>استمر</h3>
+<p>رحلتك تتطور معك يومًا بعد يوم.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= EXPERIENCE ================= -->
+
+<section class="section experience" id="experience">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">جرّب رِفْق</div>
+
+<h2>
+كم لديك اليوم؟
+</h2>
+
+<p>
+حتى لو لم تملك إلا دقائق قليلة، يمكن أن تبدأ.
+</p>
+
+</div>
+
+<div class="experience-box reveal">
+
+<div class="choice-title">
+اختر الوقت الذي تستطيع منحه اليوم
+</div>
+
+<div class="time-options">
+
+<button class="time-option" onclick="startSession(3,this)">
+٣ دقائق
+</button>
+
+<button class="time-option" onclick="startSession(5,this)">
+٥ دقائق
+</button>
+
+<button class="time-option" onclick="startSession(10,this)">
+١٠ دقائق
+</button>
+
+<button class="time-option" onclick="startSession(20,this)">
+٢٠ دقيقة
+</button>
+
+</div>
+
+<div class="session" id="session">
+
+<div class="session-header">
+
+<div class="session-title">
+🌱 جلسة اليوم
+</div>
+
+<div class="session-time" id="sessionTime">
+٥ دقائق
+</div>
+
+</div>
+
+<div class="ayah-large" id="ayahText">
+تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ
+وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ
+</div>
+
+<div style="text-align:center;color:#7B8883;font-size:12px;margin-top:10px;">
+سورة الملك • الآية ١
+</div>
+
+<div class="session-buttons">
+
+<button class="session-btn" onclick="sessionAction('🎧 استمع: سيتم تشغيل التلاوة عند تفعيل النسخة الصوتية.')">
+🎧 استمع
+</button>
+
+<button class="session-btn" onclick="sessionAction('🔁 كرر الآية بهدوء، ثم اضغط «سمّعني».')">
+🔁 كرر
+</button>
+
+<button class="session-btn" onclick="sessionAction('🎙️ ميزة التسميع الصوتي ستكون جزءًا من النسخة التقنية الكاملة.')">
+🎙️ سمّعني
+</button>
+
+</div>
+
+<div class="session-message" id="sessionMessage">
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= MAP ================= -->
+
+<section class="section map-section" id="map">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">رحلتك</div>
+
+<h2>
+خريطة الحفظ
+</h2>
+
+<p>
+رِفْق لا يريك نسبة مئوية فقط؛
+بل يوضح لك أين أنت وأين تحتاج إلى المراجعة.
+</p>
+
+</div>
+
+<div class="map-box reveal">
+
+<div class="map-header">
+
+<div class="map-title">
+سورة الملك
+</div>
+
+<div class="map-legend">
+
+<div class="legend">
+<span class="dot green-dot"></span>
+متقن
+</div>
+
+<div class="legend">
+<span class="dot yellow-dot"></span>
+مراجعة
+</div>
+
+<div class="legend">
+<span class="dot blue-dot"></span>
+جديد
+</div>
+
+<div class="legend">
+<span class="dot red-dot"></span>
+يحتاج تثبيت
+</div>
+
+</div>
+
+</div>
+
+<div class="ayah-map">
+
+<div class="ayah-node node-green">١</div>
+<div class="ayah-node node-green">٢</div>
+<div class="ayah-node node-green">٣</div>
+<div class="ayah-node node-green">٤</div>
+<div class="ayah-node node-green">٥</div>
+
+<div class="ayah-node node-yellow">٦</div>
+<div class="ayah-node node-yellow">٧</div>
+
+<div class="ayah-node node-blue">٨</div>
+<div class="ayah-node node-blue">٩</div>
+<div class="ayah-node node-blue">١٠</div>
+
+<div class="ayah-node node-red">١١</div>
+<div class="ayah-node node-red">١٢</div>
+
+<div class="ayah-node node-blue">١٣</div>
+<div class="ayah-node node-blue">١٤</div>
+<div class="ayah-node node-blue">١٥</div>
+
+</div>
+
+<div style="text-align:center;margin-top:28px;color:#6E7E79;font-size:12px;">
+هذه الخريطة نموذج توضيحي لتجربة المنتج.
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= WAQF ================= -->
+
+<section class="section waqf" id="waqf">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">الأثر المستدام</div>
+
+<h2>
+وقف آية
+</h2>
+
+<p>
+لأن التقنية يمكن أن تكون بابًا لأثر لا يتوقف.
+</p>
+
+</div>
+
+<div class="waqf-card reveal">
+
+<div class="waqf-content">
+
+<div style="font-size:40px;margin-bottom:20px;">🤍</div>
+
+<h2>
+من التقنية إلى الوقف.
+</h2>
+
+<p>
+رِفْق مصمم ليكون أكثر من تطبيق؛
+بل نواة لوقف تقني مستدام يتيح أدوات تعليم وحفظ القرآن للمستفيدين،
+ويعمل على استدامة أثرها من خلال الشراكات الوقفية والرعاية والدعم المؤسسي.
+</p>
+
+<button class="primary-btn waqf-button" onclick="openModal()">
+كيف يستمر الأثر؟
+</button>
+
+</div>
+
+<div class="impact-panel">
+
+<h3>مؤشرات الأثر المستهدفة</h3>
+
+<div class="impact-stat">
+<strong>10,000+</strong>
+<span>مستفيد مستهدف</span>
+</div>
+
+<div class="impact-stat">
+<strong>100,000+</strong>
+<span>جلسة تعلم مستهدفة</span>
+</div>
+
+<div class="impact-stat">
+<strong>1,000,000+</strong>
+<span>دقيقة تعلم مستهدفة</span>
+</div>
+
+<div class="impact-stat">
+<strong>∞</strong>
+<span>أثر نطمح أن يستمر</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= AUDIENCE ================= -->
+
+<section class="section audience">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">لمن صُمم رِفْق؟</div>
+
+<h2>
+لكل من أراد الحفظ ولم يجد الطريقة التي تناسبه.
+</h2>
+
+</div>
+
+<div class="audience-grid">
+
+<div class="audience-card reveal">
+<div class="big">👴</div>
+<h3>كبار السن</h3>
+<p>
+تجربة مبسطة، واضحة، وتركز على سهولة الاستخدام.
+</p>
+</div>
+
+<div class="audience-card reveal">
+<div class="big">🏠</div>
+<h3>من لا يستطيع الوصول للحلقات</h3>
+<p>
+تعلم القرآن من أي مكان وفي الوقت المناسب.
+</p>
+</div>
+
+<div class="audience-card reveal">
+<div class="big">⏰</div>
+<h3>أصحاب الوقت المتقطع</h3>
+<p>
+جلسات قصيرة تتكيف مع الوقت المتاح في اليوم.
+</p>
+</div>
+
+<div class="audience-card reveal">
+<div class="big">🌱</div>
+<h3>من انقطع عن الحفظ</h3>
+<p>
+العودة دون ضغط، وبخطوات صغيرة قابلة للاستمرار.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= VALUES ================= -->
+
+<section class="section values">
+
+<div class="section-inner">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">مبادئ رِفْق</div>
+
+<h2>
+التقنية في خدمة الإنسان والقرآن.
+</h2>
+
+</div>
+
+<div class="values-grid">
+
+<div class="value reveal">
+<h3>📖 موثوقية النص</h3>
+<p>
+القرآن الكريم ومصادر التفسير والتعلم يجب أن تعتمد على مصادر موثوقة ومعتمدة.
+</p>
+</div>
+
+<div class="value reveal">
+<h3>🤍 لا ضغط</h3>
+<p>
+الهدف هو بناء الاستمرارية، لا تحويل الحفظ إلى سباق أو مصدر للإحباط.
+</p>
+</div>
+
+<div class="value reveal">
+<h3>🔐 خصوصية</h3>
+<p>
+بيانات رحلة المستخدم التعليمية تعامل باعتبارها بيانات شخصية تحتاج إلى حماية.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+<div class="section-inner reveal">
+
+<div class="eyebrow">رحلة تبدأ بخطوة</div>
+
+<h2>
+قد لا تستطيع أن تحفظ كثيرًا اليوم...
+</h2>
+
+<p>
+لكن ربما تستطيع أن تحفظ آية واحدة.
+ورِفْق صُمم ليساعدك ألا تتوقف.
+</p>
+
+<a href="#experience" class="primary-btn">
+ابدأ رحلتك
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+<div class="footer-logo">
+<img src="rifq-logo.png" alt="رِفْق">
+<span>رِفْق</span>
+</div>
+
+<div class="footer-text">
+© 2026 رِفْق — نموذج أولي لفكرة وقف تقني لخدمة أهل القرآن
+</div>
+
+<div class="footer-text">
+«وَقُلْ رَبِّ زِدْنِي عِلْمًا»
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ================= MODAL ================= -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<div style="font-size:35px;margin-bottom:15px;">🤍</div>
+
+<h2>كيف يستمر أثر وقف آية؟</h2>
+
+<p style="margin-top:15px;">
+الفكرة أن تكون الخدمات الأساسية متاحة للمستفيدين،
+بينما تستدام المنصة من خلال نموذج وقفي وشراكات مع الجهات المانحة
+والرعاية المؤسسية، بما يضمن استمرار الأثر وتوسعه.
+</p>
+
+<div style="margin-top:25px;padding:18px;background:white;border-radius:18px;font-size:13px;line-height:2;">
+<strong>المستفيد</strong>
+<br>
+يحصل على رحلة تعلم مجانية
+<br>
+↓
+<br>
+<strong>الوقف والشركاء</strong>
+<br>
+يساهمون في استدامة الخدمة
+<br>
+↓
+<br>
+<strong>الأثر</strong>
+<br>
+مزيد من فرص تعلم وحفظ القرآن
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ================= NAVBAR ================= */
+
+window.addEventListener("scroll",function(){
+
+const navbar=document.getElementById("navbar");
+
+if(window.scrollY>30){
+navbar.classList.add("scrolled");
+}else{
+navbar.classList.remove("scrolled");
+}
+
+});
+
+
+/* ================= REVEAL ================= */
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+
+});
+
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+observer.observe(el);
+});
+
+
+/* ================= SESSION ================= */
+
+function startSession(minutes,button){
+
+document.querySelectorAll(".time-option").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+button.classList.add("active");
+
+const session=document.getElementById("session");
+
+session.classList.add("active");
+
+document.getElementById("sessionTime").innerText=
+minutes === 1 ? "دقيقة" : minutes+" دقائق";
+
+document.getElementById("sessionMessage").innerText=
+"🌱 تم بناء جلسة مناسبة لـ "+minutes+" دقائق من وقتك اليوم.";
+
+session.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+
+/* ================= SESSION ACTION ================= */
+
+function sessionAction(message){
+
+document.getElementById("sessionMessage").innerText=message;
+
+}
+
+
+/* ================= PHONE ================= */
+
+function phoneMessage(message){
+
+document.getElementById("phoneMessage").innerText=message;
+
+}
+
+
+/* ================= MODAL ================= */
+
+function openModal(){
+
+document.getElementById("modal").classList.add("active");
+
+}
+
+function closeModal(){
+
+document.getElementById("modal").classList.remove("active");
+
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+if(e.target===this){
+closeModal();
+}
+
+});
+
+
+/* ================= THEME ================= */
+
+function toggleTheme(){
+
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+
+document.documentElement.style.setProperty("--cream","#0B2420");
+document.documentElement.style.setProperty("--white","#102E28");
+document.documentElement.style.setProperty("--text","#F4F1E8");
+document.documentElement.style.setProperty("--muted","#A9B9B4");
+document.documentElement.style.setProperty("--border","rgba(255,255,255,.10)");
+
+}else{
+
+document.documentElement.style.setProperty("--cream","#FAF8F2");
+document.documentElement.style.setProperty("--white","#FFFFFF");
+document.documentElement.style.setProperty("--text","#17332C");
+document.documentElement.style.setProperty("--muted","#6E7E79");
+document.documentElement.style.setProperty("--border","rgba(18,60,50,.10)");
+
+}
+
+}
+
+
+/* ================= LANGUAGE ================= */
+
+let english=false;
+
+function toggleLanguage(){
+
+english=!english;
+
+const btn=document.getElementById("languageBtn");
+
+if(english){
+
+btn.innerText="AR";
+
+document.documentElement.lang="en";
+document.documentElement.dir="ltr";
+
+alert("النسخة الإنجليزية الكاملة ستكون ضمن المرحلة التالية من النموذج الأولي.");
+
+}else{
+
+btn.innerText="EN";
+
+document.documentElement.lang="ar";
+document.documentElement.dir="rtl";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
